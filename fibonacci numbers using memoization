@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define N 1000
+int dp[N];
+int fibonacci(int n)
+{
+    // we will make a call if an element in array dp is -1
+    if(dp[n]==-1)
+    {   
+        if(n<=1)
+        {
+            dp[n]=n;
+        }
+        else
+        {
+            //call to n-1  and n-2
+            dp[n]=fibonacci(n-1)+fibonacci(n-2);
+        }
+    }
+    return dp[n];
+}
+
+int main(){
+
+    int n;
+    n=10;
+    // initializing values of an array to -1
+    memset(dp,-1,sizeof(dp));
+    cout<<fibonacci(n);
+}
+
